@@ -1,26 +1,214 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@keyframes sponsor-marquee {
+  from {
+    transform: translateX(-50%);
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  to {
+    transform: translateX(0);
   }
 }
 
+.sponsor-marquee-viewport {
+  --sponsor-fade-width: 3rem;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--sponsor-fade-width),
+    black calc(100% - var(--sponsor-fade-width)),
+    transparent 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--sponsor-fade-width),
+    black calc(100% - var(--sponsor-fade-width)),
+    transparent 100%
+  );
+}
+
+:root {
+  /* ========================================
+     BRAND
+     ======================================== */
+
+  --color-primary: #660066;
+  --color-primary-dark: #420042;
+  --color-primary-light: #8a008a;
+
+  --color-accent: #56fd8d;
+  --color-accent-dark: #2dd968;
+  --color-accent-ink: #07140c;
+
+
+  /* ========================================
+     BASE SURFACES
+     ======================================== */
+
+  --color-bg: #f4f4f2;
+  --color-surface: #ffffff;
+  --color-surface-alt: #eee9ee;
+
+  --color-line: #ded9de;
+
+
+  /* ========================================
+     TEXT
+     ======================================== */
+
+  /*--color-ink: #111014;
+  --color-ink-soft: #5d5960;*/
+  --color-ink: #660066;
+  --color-ink-soft: #190926;
+
+
+  /* ========================================
+     DARK / HERO SECTIONS
+     ======================================== */
+
+  --color-night: #100b12;
+  --color-night-line: #302631;
+  --color-night-ink: #f4f1f4;
+  --color-night-soft: #aaa3ac;
+
+
+  /* ========================================
+     BRAND ACCENTS
+     ======================================== */
+
+  /* Main brand color */
+  --color-brand: var(--color-primary);
+
+  /* High-energy accent */
+  --color-accent: var(--color-accent);
+
+  /* Text placed on purple */
+  --color-brand-ink: #ffffff;
+
+  /* Text placed on green */
+  --color-accent-ink: #07140c;
+
+
+  /* ========================================
+     DATA / TELEMETRY
+     ======================================== */
+
+  --color-data: var(--color-accent);
+  --color-data-ink: #07140c;
+}
+
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+}
+
+
+/* ========================================
+   TEXT UTILITIES
+   ======================================== */
+
+.text-ink-soft {
+  color: var(--color-ink-soft);
+}
+
+.text-brand {
+  color: var(--color-primary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+
+/* ========================================
+   BRAND BACKGROUNDS
+   ======================================== */
+
+.bg-brand {
+  background-color: var(--color-primary);
+  color: var(--color-brand-ink);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.bg-night {
+  background-color: var(--color-night);
+  color: var(--color-night-ink);
+}
+
+
+/* ========================================
+   BORDERS
+   ======================================== */
+
+.border-brand {
+  border-color: var(--color-primary);
+}
+
+.border-accent {
+  border-color: var(--color-accent);
+}
+
+
+/* ========================================
+   BRAND INTERACTION
+   ======================================== */
+
+.btn-brand {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.btn-brand:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent-ink);
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+
+/* ========================================
+   FORMULA STUDENT / TELEMETRY DETAILS
+   ======================================== */
+
+.data-value {
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.data-label {
+  color: var(--color-night-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+
+/* ========================================
+   SPONSOR MARQUEE
+   ======================================== */
+
+.sponsor-marquee {
+  animation: sponsor-marquee 30s linear infinite;
 }
