@@ -271,7 +271,7 @@ export default function Home() {
                 Not a Sofia University student? Check out our partnering opportunities instead. 
               </p>
               <a
-                href="forms.cloud.microsoft/e/NMeka4iTdK"
+                href="https://forms.cloud.microsoft/e/NMeka4iTdK"
                 className="mt-6 inline-flex text-sm font-medium text-black underline decoration-line underline-offset-4 transition-colors hover:decoration-black"
               >
                 Apply to the team
