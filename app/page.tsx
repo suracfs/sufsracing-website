@@ -6,6 +6,7 @@ import MagicButton from "./MagicButton"; // <-- Import the new component
 import Reveal from "./Reveal";
 import FlashTextEffect from "./FlashTextEffect";
 import NavTabs from "./Navtabs";
+import Postcards from "./Postcards";
 import FlashInvertMask from "./FlashInvertMask";
 
 const display = Space_Grotesk({
@@ -19,10 +20,10 @@ const mono = IBM_Plex_Mono({
 });
 
 const specs = [
-  { label: "0–100 km/h", value: "4.2", unit: "s" },
-  { label: "Power", value: "80", unit: "kW" },
-  { label: "Weight", value: "227", unit: "kg" },
-  { label: "Top speed", value: "120", unit: "km/h" },
+  { label: "0–100 km/h", value: "-.-", unit: "s" },
+  { label: "Power", value: "--", unit: "kW" },
+  { label: "Weight", value: "---", unit: "kg" },
+  { label: "Top speed", value: "---", unit: "km/h" },
 ];
 
 const navLinks = [
@@ -54,6 +55,7 @@ export default function Home() {
             className="h-8 w-auto"
             src="/sur_logo_horizontal.svg"
             alt="SUR logo"
+            draggable={false}
             width={120}
             height={24}
             priority
@@ -100,14 +102,14 @@ export default function Home() {
           <div className="relative mx-auto w-full max-w-5xl px-6 py-24 sm:px-16 sm:py-32">
             
             <FlashTextEffect
-              wrapperClassName="min-h-[260px]"
+              wrapperClassName="min-h-[160px]"
               offsetTop="-110vh"
               offsetLeft="-25vw"
               width="140vw"
               height="260vh"
               rotate={5}
               scale={1}
-              debug
+              //debug
               className={`${display.className} text-4xl font-semibold leading-[1.05] tracking-tight text-black sm:text-6xl`}
             >
               Formula Student,<br />engineered in Sofia.
@@ -116,29 +118,28 @@ export default function Home() {
               className="fade-up mt-6 max-w-md text-lg leading-8 text-zinc-600"
               style={{ animationDelay: "90ms" }}
             >
-              We design, build, and race a single-seat formula car from
+              We design, build, and race a single-seater formula car from
               scratch every season — the same problems Formula 1 teams solve,
-              tackled on a student budget at the Faculty of Physics.
+              tackled by a bunch of students.
             </p>
             <div
               className="fade-up mt-10 flex flex-col gap-3 sm:flex-row"
               style={{ animationDelay: "160ms" }}
             >
-              {/* Hero CTA Magic Button */}
-              <MagicButton
-                href="#sponsors"
-                className="h-12 px-6 text-sm font-medium"
-              >
-                Partner with us
-              </MagicButton>
-              <a
-                href="#team"
-                className="flex h-12 items-center justify-center rounded-full border border-line px-6 text-sm font-medium transition-colors hover:border-black/30"
-              >
-                Meet the team
-              </a>
             </div>
 
+            <Postcards
+              images={[
+                //"20180812_14-59-15_1432_rankin-X4.jpg",
+                //"54665063181_72d1a45075_o.jpg",
+                "main_photo.jpg",
+                "image034678.jpg",
+                "IMG_6118.jpg",
+                "image32330.jpg",
+                "IMG_6123 (1).jpg",
+                "image0333355.jpg",
+              ]}
+            />
             {/* Spec strip */}
             <dl
               className="fade-up mt-16 flex max-w-2xl flex-wrap gap-x-10 gap-y-6 border-t border-line pt-8"
@@ -176,13 +177,12 @@ export default function Home() {
                   <h2
                     className={`${display.className} text-3xl font-semibold tracking-tight text-black`}
                   >
-                    Students, not spectators.
+                    Aspiring engineers
                   </h2>
                   <p className="mt-4 max-w-md text-base leading-7 text-zinc-600">
                     Sofia University Racing is run entirely by students, from
                     aerodynamics and powertrain to electronics and business.
-                    Everyone on the car — and the pitch deck — is still
-                    finishing a degree.
+                    Everyone on the car — and the pitch deck — is solving the problems of today and tomorrow.
                   </p>
                   <a
                     href="mailto:formula.student@uni-sofia.bg"
@@ -194,8 +194,8 @@ export default function Home() {
                 <div className="grid grid-cols-3 gap-6 sm:pt-2">
                   {[
                     { value: "30+", label: "Members" },
-                    { value: "6", label: "Seasons" },
-                    { value: "4", label: "Departments" },
+                    { value: "2", label: "Seasons" },
+                    { value: "6", label: "Departments" },
                   ].map((stat) => (
                     <div key={stat.label}>
                       <p
@@ -209,50 +209,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* Car */}
-        <section id="car" className="border-b border-line">
-          <div className="mx-auto w-full max-w-5xl px-6 py-20 sm:px-16">
-            <Reveal>
-              <div className="grid gap-12 sm:grid-cols-[1fr_320px] sm:items-center">
-                <div>
-                  <h2
-                    className={`${display.className} text-3xl font-semibold tracking-tight text-black`}
-                  >
-                    This season's car.
-                  </h2>
-                  <p className="mt-4 max-w-md text-base leading-7 text-zinc-600">
-                    Our current chassis carries a lighter monocoque, a
-                    rebuilt cooling package, and a control system rewritten
-                    from the ground up — every part chosen to shave grams and
-                    seconds ahead of competition.
-                  </p>
-                  <a
-                    href="#sponsors"
-                    className="mt-6 inline-flex text-sm font-medium text-black underline decoration-line underline-offset-4 transition-colors hover:decoration-black"
-                  >
-                    See the full spec sheet
-                  </a>
-                </div>
-                <HoloCard className="h-48 w-full">
-                  <div className="flex h-full w-full flex-col justify-between rounded-xl border border-line bg-surface p-5">
-                    <span className="text-xs text-zinc-500">
-                      Chassis — Gen 7
-                    </span>
-                    <div>
-                      <p className={`${mono.className} text-3xl text-black`}>
-                        198<span className="text-base text-zinc-500"> kg</span>
-                      </p>
-                      <p className="mt-1 text-xs text-zinc-500">
-                        Dry weight, driver excluded
-                      </p>
-                    </div>
-                  </div>
-                </HoloCard>
               </div>
             </Reveal>
           </div>
@@ -309,11 +265,13 @@ export default function Home() {
               </h2>
               <p className="mt-4 max-w-md text-base leading-7 text-zinc-600">
                 Interested in designing, building, racing, or helping run the
-                team? Get in touch to find out about joining Sofia University
-                Racing.
+                team? Fill out our form and we'll get back to you swiftly.
+              </p>
+              <p className="mt-4 max-w-md text-base leading-7 text-zinc-600">
+                Not a Sofia University student? Check out our partnering opportunities instead. 
               </p>
               <a
-                href="mailto:formula.student@uni-sofia.bg"
+                href="forms.cloud.microsoft/e/NMeka4iTdK"
                 className="mt-6 inline-flex text-sm font-medium text-black underline decoration-line underline-offset-4 transition-colors hover:decoration-black"
               >
                 Apply to the team
@@ -360,12 +318,12 @@ export default function Home() {
               </li>
               <li>
                 <a className="transition-colors hover:text-background" href="#team">
-                  The team
+                  The Team
                 </a>
               </li>
               <li>
-                <a className="transition-colors hover:text-background" href="#car">
-                  Our car
+                <a className="transition-colors hover:text-background" href="https://www.formulastudent.de/world/competitions/">
+                  Competitions
                 </a>
               </li>
             </ul>
@@ -407,6 +365,6 @@ export default function Home() {
           </p>
         </div>
       </footer>
-    </div>
+      </div>
   );
 }
