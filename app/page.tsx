@@ -305,6 +305,12 @@ export default function Home() {
               >
                 formula.student@uni-sofia.bg
               </a>
+              <a
+                className="block transition-colors hover:text-background"
+                href="mailto:su.fs.racing@gmail.com"
+              >
+                su.fs.racing@gmail.com
+              </a>
             </div>
           </address>
 
